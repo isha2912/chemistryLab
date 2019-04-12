@@ -1,0 +1,226 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body{
+    background-image: url(books4.png) no-repeat center fixed;
+    background-size: cover;
+    background-position: center;
+}
+        .menu-area li a {
+            text-decoration: none;
+        }
+
+        .menu-area li {
+            list-style-type: none;
+        }
+
+        .custom-padding{
+            padding-top: 25px;
+        }
+
+        nav {
+            position: relative;
+            width: calc(100% - 60px);
+            margin: 0 auto;
+            padding: 10px 0;
+            background: #000000;
+            z-index: 1;
+            text-align: right;
+            padding-right: 2%;
+            font-family: sans-serif;
+
+        }
+
+        .logo {
+            width: 15%;
+            float: left;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 25px;
+            text-align: left;
+            padding-left: 2%;
+        }
+
+        .menu-area li {
+            display: inline-block;
+        }
+
+        .menu-area a {
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            padding: 0 25px;
+            font-size: 14px;
+            line-height: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .menu-area a:hover {
+            background: #7171F4;
+            color: #fff;
+            border-radius:  : 12px;
+        }
+
+        .menu-area a:hover:after {
+            transform: translateY(-50%) rotate(-35deg);
+        }
+
+        nav:before {
+            position: absolute;
+            content: '';
+            border-top: 10px solid #333;
+            border-right: 10px solid #333;
+            border-left: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            top: 100%;
+            left: 0;
+        }
+
+        nav:after {
+            position: absolute;
+            content: '';
+            border-top: 10px solid #333;
+            border-left: 10px solid #333;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            top: 100%;
+            right: 0;
+        }
+
+
+/* ignore the code below */
+
+
+.link-area
+{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  padding:15px;
+  border-radius:40px;
+  background:tomato;
+}
+.link-area a
+{
+  text-decoration:none;
+  color:#fff;
+  font-size:25px;
+}
+
+
+
+/*---------------------------------------------------------------------*/
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url(books3.jpg) no-repeat center fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.loginbox{
+    width: 320px;
+    height: 420px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    opacity: 0.8;
+    box-shadow: 20px 20px 50px 15px black;
+}
+
+#login-box
+{
+    position: relative;
+    margin: 5% auto;
+    height: 400px;
+    width: 500px;
+    background: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    opacity: 0.8;
+    box-shadow: 20px 20px 50px 15px black;
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    font-size: 45px;
+    text-decoration: underline;
+    font-family: "Chillar";
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #7171F4;
+    color: #000;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover
+{
+    color: #7171F4;
+}
+
+p
+{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    font-family: cursive;
+    font-size: 15px;
+}

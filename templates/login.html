@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NIE CHEMISTRY LAB | LOGIN</title>
+    <link rel="stylesheet" type="text/css" href="../static/login.css">
+<body>
+    <div class="loginbox">
+    <img src="../static/nieLogo.png" class="avatar">
+        <h1>Login</h1>
+
+
+        <form name="login">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter the Username">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter the Password">
+            <input type="submit" onclick="check(this.form)" value="Login">
+          </form>
+
+          <script language="javascript">
+            function check(form)
+            {
+ 
+                if(form.username.value == "admin" && form.password.value == "admin")
+                {
+                    window.open("/updateOptions")
+                }
+                else
+                {
+                    alert("Invalid Password or Username")
+                }
+            }
+        </script>
+
+    </div>
+
+</body>
+</head>
+</html>
