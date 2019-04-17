@@ -58,45 +58,72 @@ def submitChemicals():
         Molecular_Formula = request.form["molecularFormula"]
         Stock_Available = request.form["stockAvailable"]
         snoFromDb = query_db('select Sno from CHEMICALS where Sno ="'+Sno+'"')
-        #chemicalNameFromDb = query_db('select Chem_Name from CHEMICALS where Sno = " '+Sno+'"')
-        #molecularFormulaFromDb = query_db('select Molecular_Formula from CHEMICALS where Sno = " '+Sno+'"')
-        #message = chemicalNameFromDb," ",molecularFormulaFromDb
         if (snoFromDb):
-            #if (chemicalNameFromDb[0][0] == Chem_Name and molecularFormulaFromDb[0][0] == Molecular_Formula):
-            #    execute_db('update CHEMICALS set Stock_Available = "'+Stock_Available+'" where Sno = "'+Sno+'"')
-            #    return redirect('/updateOptions')
-            #else:
             message = "Serial Number already exists for a different chemical. Verify your input."
             return render_template('updateChemicals.html', confirm = message)
         else:
             execute_db('insert into CHEMICALS values("'+Sno+'","'+Chem_Name+'","'+Molecular_Formula+'","'+Stock_Available+'")')
             return redirect('/updateOptions')
-        #return render_template('updateChemicals.html',confirm=message)
     return render_template('updateOptions.html')
 
 @app.route('/updateChemicalStock', methods = ['GET', 'POST'])
 def updateChemicalStock():
     if request.method == "POST":
         Sno = request.form["srNo"]
-        #Chem_Name = request.form["chemicalName"]
-        #Molecular_Formula = request.form["molecularFormula"]
         Stock_Available = request.form["stockAvailable"]
         snoFromDb = query_db('select Sno from CHEMICALS where Sno ="'+Sno+'"')
-        #chemicalNameFromDb = query_db('select Chem_Name from CHEMICALS where Sno = " '+Sno+'"')
-        #molecularFormulaFromDb = query_db('select Molecular_Formula from CHEMICALS where Sno = " '+Sno+'"')
-        #message = chemicalNameFromDb," ",molecularFormulaFromDb
         if (snoFromDb):
-            #if (chemicalNameFromDb[0][0] == Chem_Name and molecularFormulaFromDb[0][0] == Molecular_Formula):
             execute_db('update CHEMICALS set Stock_Available = "'+Stock_Available+'" where Sno = "'+Sno+'"')
             return redirect('/updateChemicalOptions')
-            #else:
-            #    message = "Serial Number already exists for a different chemical. Verify your input."
-            #return render_template('updateChemicals.html', confirm = message)
         else:
             message = "Serial number does not exist. Please verify."
-            #return redirect('/updateOptions')
         return render_template('updateChemicalStocks.html',confirm=message)
     return render_template('updateChemicalOptions.html')
+
+@app.route('/updateInstrumentStock', methods = ['GET', 'POST'])
+def updateInstrumentStock():
+    if request.method == "POST":
+        Sno = request.form["srNo"]
+        Stock_Available = request.form["stockAvailable"]
+        snoFromDb = query_db('select Sno from INSTRUMENT where Sno ="'+Sno+'"')
+        if (snoFromDb):
+            execute_db('update INSTRUMENT set Number_Of_Units_Present = "'+Stock_Available+'" where Sno = "'+Sno+'"')
+            return redirect('/updateInstrumentOptions')
+        else:
+            message = "Serial number does not exist. Please verify."
+        return render_template('updateInstrumentStocks.html',confirm=message)
+    return render_template('updateChemicalOptions.html')
+
+@app.route('/updateGlasswareStock', methods = ['GET', 'POST'])
+def updateGlasswareStock():
+    if request.method == "POST":
+        Sno = request.form["srNo"]
+        Stock_Available = request.form["stockAvailable"]
+        snoFromDb = query_db('select Sno from GLASSWARE where Sno ="'+Sno+'"')
+        if (snoFromDb):
+            execute_db('update GLASSWARE set Quantiy_Available = "'+Stock_Available+'" where Sno = "'+Sno+'"')
+            return redirect('/updateGlasswareOptions')
+        else:
+            message = "Serial number does not exist. Please verify."
+        return render_template('updateGlasswareStocks.html',confirm=message)
+    return render_template('updateGlasswareOptions.html')
+
+@app.route('/updateSuppliersDetails', methods = ['GET', 'POST'])
+def updateSuppliersDetails():
+    if request.method == "POST":
+        Sno = request.form["srNo"]
+        supplierContactNumber = request.form["supplierContactNumber"]
+        companyName = request.form["companyName"]
+        supplierAddress = request.form["supplierAddress"]
+        companyContactNumber = request.form["companyContactNumber"]
+        snoFromDb = query_db('select Supplier_No from SUPPLIER where Supplier_No ="'+Sno+'"')
+        if (snoFromDb):
+            execute_db('update SUPPLIER set Supplier_Contact_No = "'+supplierContactNumber+'", Company_Name = "'+companyName+'", Supplier_Address = "'+supplierAddress+'", Company_Contact_No = "'+companyContactNumber+'" where Supplier_No = "'+Sno+'"')
+            return redirect('/updateSuppliersOptions')
+        else:
+            message = "Serial number does not exist. Please verify."
+        return render_template('updateSupplierDetails.html',confirm=message)
+    return render_template('updateSupplierOptions.html')
 
 @app.route('/submitGlassware', methods = ['GET', 'POST'])
 def submitGlassware():
@@ -200,6 +227,30 @@ def updateChemicalOptions() :
 @app.route("/updateChemicalStocks")
 def updateChemicalStocks() : 
 	return render_template("updateChemicalStocks.html")
+
+@app.route("/updateInstrumentStocks")
+def updateInstrumentStocks() : 
+	return render_template("updateInstrumentStocks.html")
+
+@app.route("/updateInstrumentOptions")
+def updateInstrumentOptions() : 
+	return render_template("updateInstrumentoptions.html")
+
+@app.route("/updateGlasswareOptions")
+def updateGlasswareOptions() : 
+	return render_template("updateGlasswareoptions.html")
+
+@app.route("/updateGlasswareStocks")
+def updateGlasswareStocks() : 
+	return render_template("updateGlasswareStocks.html")
+
+@app.route("/updateSuppliersOptions")
+def updateSuppliersOptions() : 
+	return render_template("updateSuppliersoptions.html")
+
+@app.route("/updateSupplierDetails")
+def updateSupplierDetails() : 
+	return render_template("updateSupplierDetails.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
