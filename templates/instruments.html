@@ -20,6 +20,18 @@
       left: 1100px;
       top: 10px;
       }
+
+      table {
+      width: 80%;
+      border: 1px solid black;
+      }     
+
+      th,td {
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+      } 
+
 </style>
 </head>
 
@@ -34,13 +46,28 @@
             <ul class="menu-area">
                 <li><a href="/">Home</a></li>
                 <li><a href="/chemicals">Chemicals</a></li>
-                <li><a href="/instrumnets">Instruments</a></li>
+                <li><a href="/instruments">Instruments</a></li>
                 <li><a href="/glassware">Glassware</a></li>
                 <li><a href="/suppliers">Suppliers</a></li>
             </ul>
         </nav>
 
         <a href="/login" class="button">Update</a>
+
+        <div class="tab">
+          <table align="center" style="margin-left : 125px; margin-top : 50px;">
+              <th>Serial Number</th>
+              <th>Instrument Name </th>
+              <th>Number of Units Available</th>
+            {% for row in test %}
+            <tr>
+                <td> {{ row[0] }}</td>
+                <td> {{ row[1] }}</td>
+                <td> {{ row[2] }}</td>            
+            </tr> 
+            {% endfor %}
+          </table>
+        </div>
 
     </div>
 

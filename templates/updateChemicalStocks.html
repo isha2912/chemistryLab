@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>NIE CHEMISTRY LAB | ADD - CHEMICALS</title>
+	<title>NIE CHEMISTRY LAB | UPDATE - CHEMICAL STOCKS</title>
 	<style>
 		body{
     margin: 0;
@@ -14,7 +14,7 @@
 
 .loginbox{
     width: 320px;
-    height: 500px;
+    height: 340px;
    background: #000;
     color: #fff;
     top: 50%;
@@ -99,13 +99,9 @@ h1{
 	<div class="loginbox">
 			<h1>CHEMICALS</h1>
 	
-                <form ...onsubmit="checksubmission()" action="/submitChemicals" method="POST">
+                <form ...onsubmit="checksubmission()" action="/updateChemicalStock" method="POST">
 				<p>Sr No</p>
 				<input type="text" name="srNo" placeholder="Enter the Serial Number">
-				<p>Chemical Name</p>
-				<input type="text" name="chemicalName" placeholder="Enter the Chemical Name">
-				<p>Molecular Formula</p>
-				<input type="text" name="molecularFormula" placeholder="Enter the Molecular Formula">
 				<p>Stock Available</p>
                 <input type="text" name="stockAvailable" placeholder="Enter the Stock Available">
 				<input type="submit" name="signup-button" value="Submit" onclick="checksubmission()">

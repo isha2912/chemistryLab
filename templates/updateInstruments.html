@@ -99,16 +99,22 @@
 		<div class="loginbox">
 				<h1>INSTRUMENTS</h1>
 		
-		
-				<form name="instruments">
+					<form ...onsubmit="checksubmission()" action="/submitInstruments" method="POST">
 					<p>Sr no</p>
 					<input type="text" name="srNo" placeholder="Enter the Serial Number">
 					<p>Instrumnet Name</p>
 					<input type="text" name="instrumentName" placeholder="Enter the Instrument Name">
 					<p>Number of Units Available</p>
 					<input type="text" name="noOfUnitsAvailable" placeholder="Enter the Number of Units Available">
-					<input type="submit" onclick="check(this.form)" value="Submit">
+					<input type="submit" name="signup-button" value="Submit" onclick="checksubmission()">
 				  </form>
+
+				  <script language="javascript">
+                    function checksubmission()
+                    {
+                        alert("Successfully submitted!")
+                    }
+                </script>
 
 </body>
 

@@ -20,6 +20,18 @@
       left: 1100px;
       top: 10px;
       }
+
+      table {
+      width: 80%;
+      border: 1px solid black;
+      }     
+
+      th,td {
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+      } 
+
 </style>
 </head>
 
@@ -41,6 +53,27 @@
         </nav>
 
         <a href="/login" class="button">Update</a>
+
+        <div class="tab">
+          <table align="center" style="margin-left : 125px; margin-top : 50px;">
+              <th>Supplier Number</th>
+              <th>Supplier Name </th>
+              <th>Supplier Contact Number</th>
+              <th>Company Name</th>
+              <th>Supplier Address</th>
+              <th>Company Contact Number</th>
+            {% for row in test %}
+            <tr>
+                <td> {{ row[0] }}</td>
+                <td> {{ row[1] }}</td>
+                <td> {{ row[2] }}</td>
+                <td> {{ row[3] }}</td>
+                <td> {{ row[4] }}</td>
+                <td> {{ row[5] }}</td>            
+            </tr> 
+            {% endfor %}
+          </table>
+        </div>
 
     </div>
 

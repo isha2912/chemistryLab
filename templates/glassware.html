@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>NIE CHEMISTRY LAB | STAFF</title>
+    <title>NIE CHEMISTRY LAB | GLASSWARE</title>
     <link rel="stylesheet" type="text/css" href="../static/home.css">
     <style>
       .button {
@@ -20,6 +20,18 @@
       left: 1100px;
       top: 10px;
       }
+
+      table {
+      width: 80%;
+      border: 1px solid black;
+      }     
+
+      th,td {
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+      } 
+
 </style>
 </head>
 
@@ -41,6 +53,23 @@
         </nav>
 
         <a href="/login" class="button">Update</a>
+
+        <div class="tab">
+          <table align="center" style="margin-left : 125px; margin-top : 50px;">
+              <th>Serial Number</th>
+              <th>Glassware Name </th>
+              <th>Capacity</th>
+              <th>Stock Available</th>
+            {% for row in test %}
+            <tr>
+                <td> {{ row[0] }}</td>
+                <td> {{ row[1] }}</td>
+                <td> {{ row[2] }}</td>            
+                <td> {{ row[3] }}</td>
+            </tr> 
+            {% endfor %}
+          </table>
+        </div>
 
     </div>
 

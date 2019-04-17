@@ -100,9 +100,9 @@
 				<h1>SUPPLIERS</h1>
 		
 		
-				<form name="suppliers">
+					<form ...onsubmit="checksubmission()" action="/submitSuppliers" method="POST">
 					<p>Supplier No</p>
-					<input type="text" name="supplierNo" placeholder="Enter the Supplier Number">
+					<input type="text" name="supplierNumber" placeholder="Enter the Supplier Number">
 					<p>Supplier Name</p>
 					<input type="text" name="supplierName" placeholder="Enter the Supplier Name">
 					<p>Supplier Contact Number</p>
@@ -113,8 +113,15 @@
 					<input type="text" name="companyName" placeholder="Enter the Company Name">
 					<p>Company Contact Number</p>
 					<input type="text" name="companyContactNumber" placeholder="Enter the Company Contact Number">
-					<input type="submit" onclick="check(this.form)" value="Submit">
+					<input type="submit" name="signup-button" value="Submit" onclick="checksubmission()">
 				  </form>
+
+				  <script language="javascript">
+                    function checksubmission()
+                    {
+                        alert("Successfully submitted!")
+                    }
+                </script>
 
 </body>
 
