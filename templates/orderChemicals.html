@@ -1,0 +1,137 @@
+<html>
+
+<head>
+	<title>NIE CHEMISTRY LAB | ORDER - CHEMICALS</title>
+	<style>
+		body{
+    margin: 0;
+    padding: 0;
+    background: url(books4.png) no-repeat center fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.loginbox{
+    width: 320px;
+    height: 950px;
+   background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    opacity: 0.8;
+    box-shadow: 20px 20px 50px 15px black;
+}
+
+.avatar{
+    width: 110px;
+    height: 110px;
+    border-radius: 40%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #7171F4;
+    color: #000;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover
+{
+    color: #7171F4;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="loginbox">
+			<h1>ORDER CHEMICALS</h1>
+	
+                <form ...onsubmit="checksubmission()" action="/orderChemical" method="POST">
+				<p>Sr No</p>
+				<input type="text" name="srNo" placeholder="Enter the Serial Number">
+				<p>Chemical Name</p>
+				<input type="text" name="chemicalName" placeholder="Enter the Chemical Name">
+				<p>No of Packets</p>
+				<input type="text" name="noOfPackets" placeholder="Enter the No of Packets">
+				<p>Supplied By</p>
+                <input type="text" name="suppliedBy" placeholder="Enter the Supplier Number">
+                <p>Order Date</p>
+                <input type="date" name="orderDate" placeholder="Enter the Order Date">
+                <p>Delivery Date</p>
+                <input type="date" name="deliveryDate" placeholder="Enter the Delivery Date">
+                <p>Order Number</p>
+                <input type="text" name="orderNumber" placeholder="Enter the Order Number">
+                <p>Price per Stock</p>
+                <input type="text" name="pricePerStock" placeholder="Enter the Price per Stock">
+                <p>Stock Bought</p>
+                <input type="text" name="stockBought" placeholder="Enter the Total Stock Bought">
+                <p>Total Price</p>
+				<input type="text" name="totalPrice" placeholder="Enter the Total Price">
+				<input type="submit" name="signup-button" value="Order" onclick="checksubmission()">
+              </form>
+
+              {{ confirm }}<br>
+              
+              <script language="javascript">
+                    function checksubmission()
+                    {
+                        alert("Successfully submitted!")
+                    }
+                </script>
+
+</body>
+
+</html>

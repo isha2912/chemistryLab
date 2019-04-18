@@ -159,6 +159,34 @@ def submitSuppliers():
         return redirect('/updateOptions')
     return render_template('updateOptions.html')
 
+@app.route('/orderChemical', methods = ['GET', 'POST'])
+def orderChemical():
+    if request.method == "POST":
+        Sno = request.form["srNo"]
+        chemicalName = request.form["chemicalName"]
+        noOfPackets = request.form["noOfPackets"]
+        suppliedBy = request.form["suppliedBy"]
+        orderDate = request.form["orderDate"]
+        deliveryDate = request.form["deliveryDate"]
+        orderNumber = request.form["orderNumber"]
+        pricePerStock = request.form["pricePerStock"]
+        stockBought = request.form["stockBought"]
+        totalPrice = request.form["totalPrice"]
+        orderNumberFromDb = query_db('select Order_Number from CHEM_ORDER where Order_Number ="'+orderNumber+'"')
+        chemicalNameFromDb = query_db('select Chem_Name from CHEMICALS where Chem_Name = "'+chemicalName+'"')
+        suppliedByFromDb = query_db('select Supplier_No from SUPPLIER where Supplier_No = "'+suppliedBy+'"')
+        if (orderNumberFromDb):
+            message = "Order Number already exists for a different chemical. Verify your input."
+            return render_template('orderChemicals.html', confirm = message)
+        else:
+            if(chemicalNameFromDb and suppliedByFromDb):
+                execute_db('insert into CHEM_ORDER values("'+Sno+'","'+chemicalName+'","'+noOfPackets+'","'+suppliedBy+'","'+orderDate+'","'+deliveryDate+'","'+orderNumber+'","'+pricePerStock+'","'+totalPrice+'","'+stockBought+'")')
+                return redirect('/orderChemicals')
+            else:
+                message = "Either Chemical Name or Supplier Number does not exist. Please Verify."
+                return render_template('orderChemicals.html', confirm = message)
+    return render_template('chemicals.html')
+
 @app.route('/db_add')
 def adddata():
     pass
@@ -251,6 +279,10 @@ def updateSuppliersOptions() :
 @app.route("/updateSupplierDetails")
 def updateSupplierDetails() : 
 	return render_template("updateSupplierDetails.html")
+
+@app.route("/orderChemicals")
+def orderChemicals() : 
+	return render_template("orderChemicals.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
