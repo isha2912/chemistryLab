@@ -340,6 +340,7 @@ def viewInstrumentOrders() :
     c = get_db()
     cur = c.cursor()
     cur.execute("SELECT * from INST_ORDER")
+    #execute_db('DELETE from INST_ORDER where Sno = 2')
     return render_template("viewInstrumentOrders.html", test=cur.fetchall())
 
 @app.route("/viewGlasswareOrders")
