@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
 <title>NIE CHEMISTRY LAB | LOGIN</title>
     <link rel="stylesheet" type="text/css" href="../static/login.css">
 <body>
     <div class="loginbox">
-    <img src="../static/nieLogo.png" class="avatar">
-        <h1>Login</h1>
+    <img src="../static/nieLogoLogin.png" class="avatar">
+        <h1>NIE Chemistry Lab</h1>
 
 
         <form name="login">
@@ -23,7 +26,7 @@
  
                 if(form.username.value == "admin" && form.password.value == "admin")
                 {
-                    window.open("/updateOptions")
+                    window.open("/home")
                 }
                 else
                 {

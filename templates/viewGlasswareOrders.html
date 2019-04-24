@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>NIE CHEMISTRY LAB | INSTRUMENTS</title>
+    <title>NIE CHEMISTRY LAB | GLASSWARE ORDERS</title>
     <link rel="stylesheet" type="text/css" href="../static/home.css">
     <style>
       .button {
@@ -54,7 +54,7 @@
       left: 530px;
       top: 10px;
       }
-
+      
       table {
       width: 80%;
       border: 1px solid black;
@@ -65,8 +65,7 @@
       border: 1px solid black;
       text-align: center;
       } 
-
-</style>
+    </style>
 </head>
 
 
@@ -87,25 +86,34 @@
             </ul>
         </nav>
 
-        <a href="/updateInstrumentOptions" target = "_blank" class="button">Update</a>
-        <a href="/orderInstruments" class="button1">Order</a>
+        <a href="/orderInstruments" class="button">Order</a>
 
         <div class="tab">
           <table align="center" style="margin-left : 125px; margin-top : 50px;">
               <th>Serial Number</th>
-              <th>Instrument Name </th>
-              <th>Number of Units Available</th>
+              <th>Glassware Name </th>
+              <th>Supplied By</th>
+              <th>Order Date</th>
+              <th>Delivery Date</th>
+              <th>Order Number</th>
+              <th>Price</th>
+              <th>Number of Glassware Bought</th>
+              <th>Total Price</th>
             {% for row in test %}
             <tr>
                 <td> {{ row[0] }}</td>
                 <td> {{ row[1] }}</td>
-                <td> {{ row[2] }}</td>            
+                <td> {{ row[3] }}</td>            
+                <td> {{ row[4] }}</td>
+                <td> {{ row[5] }}</td>
+                <td> {{ row[8] }}</td>
+                <td> {{ row[2] }}</td>
+                <td> {{ row[7] }}</td>
+                <td> {{ row[6] }}</td>
             </tr> 
             {% endfor %}
           </table>
         </div>
-
-        <a href="/viewInstrumentOrders" class="button2">View Orders</a>
 
     </div>
 

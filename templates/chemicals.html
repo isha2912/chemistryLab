@@ -37,6 +37,23 @@
       left: 850px;
       top: 10px;
       }
+
+      .button2 {
+      background-color: #7171F4;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      position: relative;
+      left: 530px;
+      top: 10px;
+      }
       
       table {
       width: 80%;
@@ -60,15 +77,16 @@
             
 
             <ul class="menu-area">
-                <li><a href="/">Home</a></li>
+                <li><a href="/home">Home</a></li>
                 <li><a href="/chemicals">Chemicals</a></li>
                 <li><a href="/instruments">Instruments</a></li>
                 <li><a href="/glassware">Glassware</a></li>
                 <li><a href="/suppliers">Suppliers</a></li>
+                <li><a href="/">Logout</a></li>
             </ul>
         </nav>
 
-        <a href="/login" class="button">Update</a>
+        <a href="/updateChemicalOptions" target = "_blank" class="button">Update</a>
         <a href="/orderChemicals" class="button1">Order</a>
         <!--<a href="/viewChemicals" class="button2">View Data</a>-->
         <div class="tab">
@@ -87,6 +105,8 @@
             {% endfor %}
           </table>
         </div>
+
+        <a href="/viewChemicalOrders" class="button2">View Orders</a>
 
     </div>
 

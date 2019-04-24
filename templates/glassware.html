@@ -20,6 +20,39 @@
       left: 1100px;
       top: 10px;
       }
+      .button1 {
+      background-color: #7171F4;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      position: relative;
+      left: 850px;
+      top: 10px;
+      }
+
+      .button2 {
+      background-color: #7171F4;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      position: relative;
+      left: 530px;
+      top: 10px;
+      }
 
       table {
       width: 80%;
@@ -44,15 +77,17 @@
             
 
             <ul class="menu-area">
-                <li><a href="/">Home</a></li>
+                <li><a href="/home">Home</a></li>
                 <li><a href="/chemicals">Chemicals</a></li>
                 <li><a href="/instruments">Instruments</a></li>
                 <li><a href="/glassware">Glassware</a></li>
                 <li><a href="/suppliers">Suppliers</a></li>
+                <li><a href="/">Logout</a></li>
             </ul>
         </nav>
 
-        <a href="/login" class="button">Update</a>
+        <a href="/updateGlasswareOptions" target = "_blank" class="button">Update</a>
+        <a href="/orderGlassware" class="button1">Order</a>
 
         <div class="tab">
           <table align="center" style="margin-left : 125px; margin-top : 50px;">
@@ -70,6 +105,8 @@
             {% endfor %}
           </table>
         </div>
+
+        <a href="/viewGlasswareOrders" class="button2">View Orders</a>
 
     </div>
 
