@@ -303,7 +303,7 @@ def orderInstrument():
 def chemicals() : 
     c = get_db()
     cur = c.cursor()
-    cur.execute("SELECT * from CHEMICALS")
+    cur.execute("SELECT Inst_Name, Number_Of_Units_Present from INSTRUMENT")
     #execute_db('DELETE from CHEMICALS where Sno = 4')
     return render_template("chemicals.html", test = cur.fetchall())
 
