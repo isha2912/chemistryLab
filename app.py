@@ -189,25 +189,68 @@ def updateSuppliersDetails():
 def deleteChemical():
     if request.method == "POST":
         Sno = request.form["srNo"]
-        snoFromDb = query_db('select Sno from CHEMICALS where Sno ="'+Sno+'"')
+        chemicalNameFromDb = query_db('select Chem_Name from CHEMICALS where Sno ="'+Sno+'"')
+        cname=chemicalNameFromDb[0][0]
+        chemicalNameFromOrderTable = query_db('select C_name from CHEM_ORDER where C_name ="'+cname+'"')
+        if(chemicalNameFromDb):
+            if(chemicalNameFromOrderTable):
+                message = "Cannot delete the said chemical as it is associated with an order. Please verify."
+                return render_template('deleteChemicals.html', confirm=message)
+            else:
+                execute_db('delete from CHEMICALS where Chem_Name = "'+cname+'"')
+                return render_template('deleteChemicals.html')
+    return render_template('deleteChemicals.html')
 
 @app.route('/deleteInstrument', methods = ['GET', 'POST'])
 def deleteInstrument():
     if request.method == "POST":
         Sno = request.form["srNo"]
-        snoFromDb = query_db('select Sno from CHEMICALS where Sno ="'+Sno+'"')
+        instrumentNameFromDb = query_db('select Inst_Name from INSTRUMENT where Sno ="'+Sno+'"')
+        iname = instrumentNameFromDb[0][0]
+        instrumentNameFromOrderTable = query_db('select I_name from INST_ORDER where I_name ="'+iname+'"')
+        if(instrumentNameFromDb):
+            if(instrumentNameFromOrderTable):
+                message = "Cannot delete the said instrument as it is associated with an order. Please verify."
+                return render_template('deleteInstruments.html', confirm=message)
+            else:
+                execute_db('delete from INSTRUMENT where Inst_Name = "'+iname+'"')
+                return render_template('deleteInstruments.html')
+    return render_template('deleteInstruments.html')
 
 @app.route('/deleteGlassware', methods = ['GET', 'POST'])
 def deleteGlassware():
     if request.method == "POST":
         Sno = request.form["srNo"]
-        snoFromDb = query_db('select Sno from CHEMICALS where Sno ="'+Sno+'"')
+        glasswareNameFromDb = query_db('select Glass_Name from GLASSWARE where Sno ="'+Sno+'"')
+        gname = glasswareNameFromDb[0][0]
+        glasswareNameFromOrderTable = query_db('select G_name from GLASS_ORDER where G_name ="'+gname+'"')
+        if(glasswareNameFromDb):
+            if(glasswareNameFromOrderTable):
+                message = "Cannot delete the said glassware as it is associated with an order. Please verify."
+                return render_template('deleteGlassware.html', confirm=message)
+            else:
+                execute_db('delete from GLASSWARE where Glass_Name = "'+gname+'"')
+                return render_template('deleteGlassware.html')
+    return render_template('deleteGlassware.html')
 
 @app.route('/deleteSupplier', methods = ['GET', 'POST'])
 def deleteSupplier():
     if request.method == "POST":
         Sno = request.form["srNo"]
-        snoFromDb = query_db('select Sno from CHEMICALS where Sno ="'+Sno+'"')
+        supplierNumberFromDb = query_db('select Supplier_No from SUPPLIER where Supplier_No ="'+Sno+'"')
+        snumber = str(supplierNumberFromDb[0][0])
+        supplierNumberFromChemOrder = query_db('select Supplied_By from CHEM_ORDER where Supplied_By ="'+Sno+'"')
+        supplierNumberFromGlassOrder = query_db('select Supplied_By from INST_ORDER where Supplied_By ="'+Sno+'"')
+        supplierNumberFromInstOrder = query_db('select Supplied_By from GLASS_ORDER where Supplied_By ="'+Sno+'"')
+        if(supplierNumberFromDb):
+            if(supplierNumberFromChemOrder or supplierNumberFromGlassOrder or supplierNumberFromInstOrder):
+                message = "Cannot delete the said supplier as it is associated with one or more orders. Please verify."
+                return render_template('deleteSuppliers.html', confirm=message)
+            else:
+                execute_db('delete from SUPPLIER where Supplier_No = "'+snumber+'"')
+                return render_template('deleteSuppliers.html')
+    return render_template('deleteSuppliers.html')
+
 
 ####################################################################################################################
 
